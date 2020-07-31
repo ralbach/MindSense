@@ -10,9 +10,12 @@ class HappinessForm extends React.Component {
     }
   }
 
-  increment = () => {
-    this.setState({total: this.state.total + this.value});
+  addScore = (value) => {
+    console.log(value)
+    let newTotal = this.state.totalScore + value;
+    this.setState({totalScore: newTotal});
   }
+
 
 
   render(){
@@ -55,20 +58,20 @@ class HappinessForm extends React.Component {
             endYourLife: null,
             planOnHarmingYourself: null,
           }}
-          onClick={this.totalScore}
-          onSubmit={(values, { setSubmitting }) =>{
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+
+          onSubmit={
+            (values, { setSubmitting }) =>{
+            Object.keys(values).forEach((i) => {
+              this.addScore(Number(values[i]));
+            })
           }}>
 
             {({
               values,
-              handleSubmit,
+              submitForm,
               isSubmitting
             }) => (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={(e) => {e.preventDefault(); submitForm(e)}}>
             <div>
               <label>
               1. Feeling Sad or down in the dumps.
@@ -344,7 +347,7 @@ class HappinessForm extends React.Component {
               <Field type="radio" name="planOnHarmingYourself" value="4" />4
             </div>
 
-            <button type="submit" disabled={isSubmitting} onClick={this.totalScore}>
+            <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
           </Form>
