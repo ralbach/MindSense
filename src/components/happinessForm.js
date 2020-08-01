@@ -1,5 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import * as yup from 'yup';
+
+
 
 class HappinessForm extends React.Component {
   constructor(){
@@ -10,8 +13,9 @@ class HappinessForm extends React.Component {
     }
   }
 
+
+
   addScore = (value) => {
-    console.log(value)
     let newTotal = this.state.totalScore + value;
     this.setState({totalScore: newTotal});
   }
@@ -58,13 +62,41 @@ class HappinessForm extends React.Component {
             endYourLife: null,
             planOnHarmingYourself: null,
           }}
+           validationSchema = {yup.object().shape({
+            feelingSad: yup.string().required("please fill all responses before continuing."),
+            feelingUnhappy: yup.string().required("please fill all responses before continuing."),
+            cryingSpells: yup.string().required("please fill all responses before continuing."),
+            feelingDiscouraged: yup.string().required("please fill all responses before continuing."),
+            feelingHopeless: yup.string().required("please fill all responses before continuing."),
+            lowSelfEsteem: yup.string().required("please fill all responses before continuing."),
+            feelingWorthless: yup.string().required("please fill all responses before continuing."),
+            feelingGuilt: yup.string().required("please fill all responses before continuing."),
+            criticizingYourself: yup.string().required("please fill all responses before continuing."),
+            difficultyMakingDecisions: yup.string().required("please fill all responses before continuing."),
+            noInterestFamilyFriends: yup.string().required("please fill all responses before continuing."),
+            loneliness: yup.string().required("please fill all responses before continuing."),
+            spendingLessTime: yup.string().required("please fill all responses before continuing."),
+            lossOfMotivation: yup.string().required("please fill all responses before continuing."),
+            noInterestWork: yup.string().required("please fill all responses before continuing."),
+            avoidingWork: yup.string().required("please fill all responses before continuing."),
+            lossOfPleasure: yup.string().required("please fill all responses before continuing."),
+            feelingTired: yup.string().required("please fill all responses before continuing."),
+            difficultySleeping: yup.string().required("please fill all responses before continuing."),
+            decreasedIncreasedApetite: yup.string().required("please fill all responses before continuing."),
+            noInterestSex: yup.string().required("please fill all responses before continuing."),
+            worriedAboutHealth: yup.string().required("please fill all responses before continuing."),
+            suicidalThoughts: yup.string().required("please fill all responses before continuing."),
+            endYourLife: yup.string().required("please fill all responses before continuing."),
+            planOnHarmingYourself: yup.string().required("please fill all responses before continuing."),
+          })}
 
           onSubmit={
             (values, { setSubmitting }) =>{
             Object.keys(values).forEach((i) => {
               this.addScore(Number(values[i]));
             })
-          }}>
+            console.log(this.state.totalScore)}
+          }>
 
             {({
               values,
