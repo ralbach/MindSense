@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as yup from 'yup';
 
+import NavBar from './NavBar';
+
 
 
 class HappinessForm extends React.Component {
@@ -25,6 +27,7 @@ class HappinessForm extends React.Component {
   render(){
     return (
       <div>
+        <NavBar />
         <h1>Answer these as accurately as you can based on how much you've exerienced them during the past week.</h1>
         <h3>Each question will be scored from 0 - 4</h3>
         <ul>

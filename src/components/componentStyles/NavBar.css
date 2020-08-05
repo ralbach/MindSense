@@ -1,0 +1,23 @@
+div {
+  width: 100%;
+}
+
+#logo {
+  width: 128px;
+}
+
+#navigationList {
+  font-family: 'Lato', BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serifs;
+  font-weight: bold;
+  font-size: 1rem;
+  list-style: none;
+  color: aquamarine;
+}
+
+li :hover {
+  color: gray;
+}
+
+li :visited {
+  text-decoration: none;
+}

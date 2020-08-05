@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import App from './App'
-import HappinessForm from './components/happinessForm';
+import HappinessForm from './components/HappinessForm';
 
 export default function Routes() {
     return(
