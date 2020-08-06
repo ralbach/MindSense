@@ -13,10 +13,10 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <header className="App-header">
-          <h1> Welcome to the mindful app.</h1>
-          <h3>Take our 25 questions free mindful assessment now!</h3>
+          <h1> Welcome to Mindsense.me.</h1>
+          <h3>Take our free Mindsense assessment now!</h3>
           <Link to='/HappinessForm'>
-            <button type="submit"> Submit </button>
+            <button id="survey" type="submit"> Find Happiness </button>
           </Link>
         </header>
       </div>

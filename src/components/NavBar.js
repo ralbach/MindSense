@@ -25,11 +25,13 @@ render(){
 
                 <li>About</li>
 
-
+              <Link to='/Signup'>
                 <li>Login</li>
+              </Link>
 
-
+              <Link to='/Signup'>
                 <li>Signup</li>
+              </Link>
 
             </ul>
 
